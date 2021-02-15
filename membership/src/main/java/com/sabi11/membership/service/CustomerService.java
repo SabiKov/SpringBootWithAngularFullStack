@@ -1,5 +1,6 @@
 package com.sabi11.membership.service;
 
+import com.sabi11.membership.exception.UserNotFoundException;
 import com.sabi11.membership.model.Customer;
 import com.sabi11.membership.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class CustomerService {
 
     public Customer findCustomerById(Long id) {
         return customerRepo.findCustomerById(id)
-                .orElseThrow(() -> UserNotFoundexception("User by id " + id + " was not found"));
+                .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
     public void  deleteCustomerById(Long id) {

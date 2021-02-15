@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface CustomerRepo extends JpaRepository<Customer, Long> {
     void deleteCustomerById(Long id);
 
-    Optional findCustomerById(Long id);
+    Optional<Customer> findCustomerById(Long id);
 }
